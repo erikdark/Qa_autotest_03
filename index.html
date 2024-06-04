@@ -121,11 +121,27 @@ const modal = document.getElementById('modal');
 const closeButton = document.querySelector('.close');
 
 registrationForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    const firstName = firstNameInput.value.trim();
-    const lastName = lastNameInput.value.trim();
-    const email = emailInput.value.
+  const firstName = firstNameInput.value.trim();
+  const lastName = lastNameInput.value.trim();
+  const email = emailInput.value.trim();
+
+  // Validate required fields (firstName and lastName)
+  if (firstName === "" || lastName === "") {
+    alert("Пожалуйста, заполните обязательные поля (Имя и Фамилия).");
+    return; // Prevent form submission if required fields are empty
+  }
+
+  // Display success message in modal
+  modal.style.display = "block";
+
+  // Close modal functionality (optional)
+  closeButton.addEventListener('click', () => {
+    modal.style.display = "none";
+  });
+});
+
 
     </script>
 </body>
